@@ -1,12 +1,15 @@
-# Java
 
-<h2>Conta</h2>
+
 package Aula1;
 
+
 public class Conta {
+
 	private String numConta;
 	private String cliente;
-	private Double saldo = 0.0; //Se comneçar com letra maiúscula é classe, e se o double minúsculo seria um tipo primitivo(ex:int, double, float)
+	private Double saldo = 0.0; 
+	
+	//Se comneçar com letra maiúscula é classe, e se o double minúsculo seria um tipo primitivo(ex:int, double, float)
 	// usar a classe ao invés do tipo primitivo torna possível você usar métodos prontos que agiliza sua programação
 	
 	public Conta(String numConta, String cliente) {
