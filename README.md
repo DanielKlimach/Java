@@ -69,3 +69,6 @@
 			mas comportamentos distintos.
 		</p>
 </ul>
+
+### Referências:
+[Documento PDF: Poojava UNICAMP (Ivan Luiz Marques Ricarte)](https://www.dca.fee.unicamp.br/cursos/PooJava/Aulas/poojava.pdf "Documento PDF")
