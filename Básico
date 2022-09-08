@@ -1,0 +1,36 @@
+package EstudoGeral;
+
+public class Parte1 {
+	public static void main(String[] args) {
+		/*
+		\b backspace
+		\t tabulação horizontal
+		\n newline
+		\f form feed
+		\r carriage return
+		\" aspas
+		\’ aspas simples
+		\\ contrabarra
+		
+		Java é CaseSensitive
+		*/
+	
+		int ex1 = 0;
+		int ex2 = 0;
+	
+		for(int i = 0; i < 3; i++) {
+			if (ex1 == ex2 || ex1 <= 0) {
+				ex1 += 1;
+				ex2 = 2;
+				System.out.println("ex1 ou é igual ao ex2 ou é igual a 0. \nAtualizando valor da variável para: " + ex1);
+				}
+				else if(ex1 != ex2 && ex1 >= 1 && ex1 <= 2){
+					ex1 += 2;
+					System.out.printf("ex1 não é igual a ex2 e está entre 1 e 2.\nAtualizando valor da variável para: %d \n", ex1);
+				}
+				else {
+					System.out.println("ex1 não é igual ao valor de ex2 e não está entre 1 e 2.\nValor final da variavel ex1: " + ex1 + " e ex2: " + ex2);
+				}
+		}
+	}	
+}
