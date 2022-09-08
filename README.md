@@ -71,4 +71,5 @@
 </ul>
 
 ### Referências:
-[Documento PDF: Poojava UNICAMP (Ivan Luiz Marques Ricarte)](https://www.dca.fee.unicamp.br/cursos/PooJava/Aulas/poojava.pdf "Documento PDF")
+[Documento PDF: Poojava UNICAMP (Ivan Luiz Marques Ricarte)](https://www.dca.fee.unicamp.br/cursos/PooJava/Aulas/poojava.pdf "Documento PDF UniCamp")
+[Documento PDF: Caelum Alura ](https://www.caelum.com.br/apostila/apostila-java-orientacao-objetos.pdf "Documento PDF Alura")
