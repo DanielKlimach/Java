@@ -29,8 +29,39 @@ public class Parte1 {
 					System.out.printf("ex1 não é igual a ex2 e está entre 1 e 2.\nAtualizando valor da variável para: %d \n", ex1);
 				}
 				else {
-					System.out.println("ex1 não é igual ao valor de ex2 e não está entre 1 e 2.\nValor final da variavel ex1: " + ex1 + " e ex2: " + ex2);
+					System.out.printf("ex1 não é igual ao valor de ex2 e não está entre 1 e 2.\nValor final da variavel ex1: %d e ex2: %d", ex1, ex2);
 				}
 		}
-	}	
+		
+		
+	 float exFloat = 1.8f;
+	 
+	 while(exFloat <= 2.5f) {
+		 System.out.println("");
+		 if(exFloat == 1.9f) {
+			 System.out.print("================OUTRO CONTEÚDO==============");
+		 }
+		 else if(exFloat == 2.1f) {
+			 break;
+		 }
+		 exFloat += 0.1f;
+	 }
+	 
+	 System.out.println("FIBONACCI");
+	 
+	 int x = 1;
+	 int y = 0; 
+	         
+	 for (int cont = 1; cont < 13; cont++){
+		 if (cont < 2){
+			 System.out.println(0+"\n"+1);    
+	     } 
+		 else {
+	        x += y;
+	        y = x - y;
+	       
+	    System.out.println(x);
+	     }
+	    }
+	}	 
 }
