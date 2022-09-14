@@ -1,0 +1,140 @@
+
+Conta.java
+
+package EstudoGeral;
+	
+	class Contas {
+		private int numero;
+		private String titular;
+		private double saldo;
+		static private int totalContas;
+		
+		//Quando declaramos um atributo como static, ele passa a não ser mais um atributo de cada objeto, e sim	um atributo	da classe.
+		//Marcando um atributo como	privado, fechamos o seu	acesso em relação a todas as outras classes.
+		
+		
+		
+		Contas(String titular, int numero){
+			this.titular = titular;
+			this.numero	= numero;
+			Contas.totalContas += 1;
+		}
+
+		public static int getTotalContas() {
+			return Contas.totalContas;
+		}
+		
+		public int getNumero() {
+			return numero;
+		}
+		
+		public void setNumero(int numero) {
+			this.numero = numero;
+		}
+		
+		//this para remeter a variável e sem o this para remeter ao parâmetro do método.
+		
+		public String getTitular() {
+			return titular;
+		}
+		
+		public void setTitular(String titular) {
+			this.titular = titular;
+		}
+		
+		public double getSaldo() {
+			return this.saldo;
+		}
+		
+		public void setSaldo(double saldo) {
+			this.saldo = saldo;
+		}
+	
+		
+		boolean validaConta(){
+			if(numero > 0001000000 && titular != "null" && saldo >= 0) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		}
+		
+		boolean saca(double valor) {
+			if(validaConta()) {
+				if(this.saldo < valor) {
+					return false;
+				} else {
+					this.saldo -= valor;
+					return true;
+				}
+			} else {
+				return false;
+			}
+			
+		}
+			
+		void deposita(double quantidade) {
+			if(validaConta()) {
+				this.saldo += quantidade;
+				System.out.printf("Deposito efetuado, seu saldo agora é de: %.2f\n", this.saldo);
+			} else {
+				System.out.println("Conta invalidada!");
+			}
+		}
+		//A palavra-chave void diz que quando você pedir para a conta sacar uma quantia, nenhuma informação será enviada de volta a quem pediu.
+		//Não necessita de retorno.
+		
+		boolean	transferePara(Contas destino, double valor) {
+			if(validaConta()) {
+				boolean	retirou	= this.saca(valor);
+				if(retirou == false) {
+					return false;
+				} else {
+					destino.deposita(valor);
+					return true;
+				}
+			} else {
+				return false;
+			}
+		}
+		
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Programa.java
+
+package EstudoGeral;
+
+public class Programa {
+	public static void main(String[] args){
+		Contas minhaConta = new Contas("Daniel", 1002038719);
+		Contas outraConta = new Contas("Pedro", 2005491238); 
+
+		minhaConta.setSaldo(1500.00);
+		outraConta.setSaldo(800.00);
+		
+		
+		System.out.printf("Titular: %s\nSaldo: %.2f\n", minhaConta.getTitular(), minhaConta.getSaldo());
+		System.out.printf("Titular: %s\nSaldo: %.2f\n", outraConta.getTitular(), outraConta.getSaldo());
+		
+		if(minhaConta.saca(200)) {
+			System.out.printf("Saque efetuado, saldo do %s agora é de: %.2f\n", minhaConta.getTitular(), minhaConta.getSaldo());
+		} else {
+			System.out.printf("Saque negado, seu saldo do %s é de: %.2f, sem saldo suficiente para esse valor!\n", minhaConta.getTitular(), minhaConta.getSaldo());
+		}
+		
+		minhaConta.deposita(600);
+				
+		if(minhaConta.transferePara(outraConta, 600.50)) {
+			System.out.printf("Transferência efetuada, saldo do %s agora é de: %.2f\nsaldo do %s: %.2f\n", minhaConta.getTitular(), minhaConta.getSaldo(), outraConta.getTitular(), outraConta.getSaldo());
+		}
+		else {
+			System.out.printf("Transferencia recusada, seu saldo é de: %.2f, saldo insuficiente para o valor da transferência\n", minhaConta.getSaldo());
+		}
+		
+		System.out.println(Contas.getTotalContas())
+		;
+	}
+}
